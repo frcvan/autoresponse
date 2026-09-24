@@ -1,0 +1,28 @@
+{
+    "name": "autoresponse",
+    "version": "1.0.0",
+    "description": "Google webhook to auto respond to Tally form submissions",
+    "homepage": "https://github.com/frcvan/autoresponse#readme",
+    "bugs": {
+        "url": "https://github.com/frcvan/autoresponse/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/frcvan/autoresponse.git"
+    },
+    "license": "MIT",
+    "author": "",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "buildEmail": "node build.js"
+    },
+    "dependencies": {
+        "mjml": "^5.4.1"
+    },
+    "devDependencies": {
+        "@types/google-apps-script": "^2.0.13",
+        "typescript": "^7.0.2"
+    }
+}

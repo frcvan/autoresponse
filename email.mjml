@@ -1,0 +1,81 @@
+<mjml>
+    <mj-head>
+        <mj-attributes>
+            <mj-all
+                font-family="'Merriweather Sans', 'Trebuchet MS', 'Helvetica Neue', sans-serif"
+            />
+            <mj-text color="#ffffff" />
+        </mj-attributes>
+        <mj-font
+            name="Merriweather Sans"
+            href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap"
+        />
+        <mj-style>
+            .thank-you-box {
+                border-radius: 8px;
+            }
+        </mj-style>
+    </mj-head>
+    <mj-body background-color="#ffffff">
+        <mj-section padding="32px 16px">
+            <mj-column
+                background-color="#652633"
+                border-radius="8px"
+                padding="32px 24px"
+                css-class="thank-you-box"
+            >
+                <mj-text
+                    align="left"
+                    font-size="28px"
+                    font-weight="700"
+                    line-height="1.2"
+                    padding="0 0 20px"
+                >
+                    Team V.A.N.
+                </mj-text>
+                <mj-text
+                    align="left"
+                    font-size="24px"
+                    font-weight="700"
+                    line-height="1.3"
+                    padding="0 0 12px"
+                >
+                    Thank you for reaching out!
+                </mj-text>
+                <mj-text
+                    align="left"
+                    font-size="16px"
+                    line-height="1.6"
+                    padding="0"
+                >
+                    Thank you for filling out the interest form!<br />
+                    We'll get back to you in a day or two by email.<br />
+                </mj-text>
+                <mj-text
+                    align="left"
+                    font-size="16px"
+                    line-height="1.6"
+                    padding="24px 0 0"
+                >
+                    Thanks,<br />
+                    Team V.A.N.
+                </mj-text>
+                <mj-text
+                    align="center"
+                    color="#ffffff"
+                    font-size="14px"
+                    line-height="1.6"
+                    padding="24px 0 0"
+                >
+                    <a href="https://teamvan.org" style="color: #ffffff"
+                        >teamvan.org</a
+                    >
+                    &bull;
+                    <a href="mailto:contact@teamvan.org" style="color: #ffffff"
+                        >contact@teamvan.org</a
+                    >
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>

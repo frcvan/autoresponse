@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "target": "ES2018",
+        "lib": ["ES2018"],
+        "types": ["google-apps-script"]
+    },
+    "include": ["*.js"]
+}
