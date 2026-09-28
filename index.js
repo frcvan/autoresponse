@@ -28,7 +28,7 @@ function doPost(e) {
         var fields = payload.fields || [];
 
         // Configuration
-        var senderAlias = "contact@teamvan.org"; // MUST be an authorized "Send mail as" alias in Gmail
+        var senderAlias = "interest@teamvan.org"; // MUST be an authorized "Send mail as" alias in Gmail
 
         // Variables to track respondent data and form details
         /** @type {string | null} */
@@ -60,39 +60,35 @@ function doPost(e) {
             var userSubject = "Thank you for reaching out!";
 
             var userPlainText =
-                "Team V.A.N.\n\n" +
-                "Thank you for reaching out!\n\n" +
-                "Thank you for filling out the interest form!\n" +
-                "We'll get back to you in a day or two by email.\n\n" +
-                "Thanks,\nTeam V.A.N.\n\n" +
+                "Thank you for filling out the interest form! \n" +
+                "We'll get back to you in a day or two by email. \n\n" +
+                "Thanks, \nTeam V.A.N. \n" +
                 "teamvan.org - contact@teamvan.org";
 
-            var userHtmlBody =
-                '<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333333; line-height: 1.6;">' +
-                '<h2 style="color: #2563EB;">Thank You for Reaching Out!</h2>' +
-                "<p>We have successfully received your submission for <strong>Form Name" +
-                "</strong>.</p>" +
-                "<p>We will get back to you <strong>in a day or two by email</strong>.</p>" +
-                '<p style="margin-top: 24px;">Best regards,<br><strong>Team V.A.N.</strong></p>' +
-                "</div>";
+            var userHtmlBody = "__USER_HTML_BODY__";
 
-            GmailApp.sendEmail(respondentEmail, userSubject, userPlainText, {
+            GmailApp.createDraft(respondentEmail, userSubject, userPlainText, {
                 from: senderAlias,
                 name: "Team V.A.N.", // Custom sender display name
                 htmlBody: userHtmlBody
-            });
-        }
+            })
+                .send()
+                .moveToTrash();
 
-        return ContentService.createTextOutput(
-            JSON.stringify({ status: "success" })
-        ).setMimeType(ContentService.MimeType.JSON);
+            console.log("Successfully sent email to" + respondentEmail);
+        }
     } catch (err) {
         var errorMessage = err instanceof Error ? err.toString() : String(err);
-        Logger.log("Error processing webhook: " + errorMessage);
+        console.log("Error processing webhook: " + errorMessage);
         return ContentService.createTextOutput(
             JSON.stringify({ status: "error", message: errorMessage })
         ).setMimeType(ContentService.MimeType.JSON);
     }
+
+    console.log("Successfully handled request for " + formName);
+    return ContentService.createTextOutput(
+        JSON.stringify({ status: "success" })
+    ).setMimeType(ContentService.MimeType.JSON);
 }
 
 /**

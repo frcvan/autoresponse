@@ -24,18 +24,18 @@ async function build() {
     }
 
     const sourceIndex = fs.readFileSync(sourceIndexPath, "utf8");
-    const userHtmlBodyPattern =
-        /            var userHtmlBody =[\s\S]*?;\n\n            GmailApp\.sendEmail/;
+    const userHtmlBodyMarker = '"__USER_HTML_BODY__"';
+    const markerOccurrences = sourceIndex.split(userHtmlBodyMarker).length - 1;
 
-    if (!userHtmlBodyPattern.test(sourceIndex)) {
+    if (markerOccurrences !== 1) {
         throw new Error(
-            "Could not find the userHtmlBody assignment in index.js"
+            `Expected exactly one userHtmlBody marker in index.js, found ${markerOccurrences}`
         );
     }
 
     const generatedIndex = sourceIndex.replace(
-        userHtmlBodyPattern,
-        `            var userHtmlBody = ${JSON.stringify(html)};\n\n            GmailApp.sendEmail`
+        userHtmlBodyMarker,
+        JSON.stringify(html)
     );
 
     fs.mkdirSync(outputDir, { recursive: true });
