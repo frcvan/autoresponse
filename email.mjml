@@ -48,7 +48,13 @@
                     line-height="1.6"
                     padding="0"
                 >
-                    Thank you for filling out the interest form!<br />
+                    Check out our team calendar at
+                    <a
+                        href="https://teamvan.org/calendar"
+                        style="color: #8ec5ff"
+                        >teamvan.org/calendar</a
+                    ><br />
+                    for details on our next meeting.<br /><br />
                     We'll get back to you in a day or two by email.<br />
                 </mj-text>
                 <mj-text
@@ -58,7 +64,7 @@
                     padding="24px 0 0"
                 >
                     Thanks,<br />
-                    Team V.A.N.
+                    <span style="font-weight: 700">Team V.A.N.</span>
                 </mj-text>
                 <mj-text
                     align="center"
